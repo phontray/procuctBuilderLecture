@@ -1,23 +1,51 @@
+:root {
+    --bg-color: #f0f0f0;
+    --container-bg: #fff;
+    --text-color: #333;
+    --accent-color: #3498db;
+    --button-bg: #2ecc71;
+    --button-hover: #27ae60;
+    --shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='dark'] {
+    --bg-color: #1a1a1a;
+    --container-bg: #2d2d2d;
+    --text-color: #f0f0f0;
+    --accent-color: #3498db;
+    --button-bg: #27ae60;
+    --button-hover: #219150;
+    --shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
 body {
     font-family: sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #f0f0f0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+    margin: 0;
 }
 
 .container {
     text-align: center;
     padding: 2rem;
-    background-color: #fff;
+    background-color: var(--container-bg);
     border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow);
+    transition: background-color 0.3s, box-shadow 0.3s;
+    width: 90%;
+    max-width: 500px;
 }
 
 .numbers-container {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
     margin: 2rem 0;
 }
 
@@ -27,11 +55,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 0.5rem;
     font-size: 1.5rem;
     font-weight: bold;
     color: #fff;
-    background-color: #3498db;
+    background-color: var(--accent-color);
     border-radius: 50%;
 }
 
@@ -39,7 +66,7 @@ body {
     padding: 1rem 2rem;
     font-size: 1.2rem;
     color: #fff;
-    background-color: #2ecc71;
+    background-color: var(--button-bg);
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -47,5 +74,26 @@ body {
 }
 
 #generate-btn:hover {
-    background-color: #27ae60;
+    background-color: var(--button-hover);
+}
+
+.theme-toggle {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+#theme-btn {
+    background: none;
+    border: 1px solid var(--text-color);
+    color: var(--text-color);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+#theme-btn:hover {
+    background-color: var(--text-color);
+    color: var(--container-bg);
 }
