@@ -20,14 +20,23 @@
 
 body {
     font-family: sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
     background-color: var(--bg-color);
     color: var(--text-color);
     transition: background-color 0.3s, color 0.3s;
     margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem 0;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 2rem;
 }
 
 .container {
@@ -77,14 +86,76 @@ body {
     background-color: var(--button-hover);
 }
 
+/* Contact Form Styles */
+.contact-container {
+    text-align: left;
+}
+
+.contact-container h2 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.2rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: var(--container-bg);
+    color: var(--text-color);
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+[data-theme='dark'] .form-group input,
+[data-theme='dark'] .form-group textarea {
+    border-color: #444;
+}
+
+.form-group textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+#submit-btn {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.1rem;
+    color: #fff;
+    background-color: var(--accent-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: opacity 0.3s;
+    font-weight: bold;
+}
+
+#submit-btn:hover {
+    opacity: 0.9;
+}
+
 .theme-toggle {
-    position: absolute;
+    position: fixed;
     top: 1rem;
     right: 1rem;
+    z-index: 100;
 }
 
 #theme-btn {
-    background: none;
+    background: var(--container-bg);
     border: 1px solid var(--text-color);
     color: var(--text-color);
     padding: 0.5rem 1rem;
