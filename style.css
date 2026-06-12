@@ -1,25 +1,25 @@
 :root {
-    --bg-color: #f0f0f0;
-    --container-bg: #fff;
-    --text-color: #333;
-    --accent-color: #3498db;
-    --button-bg: #2ecc71;
-    --button-hover: #27ae60;
-    --shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    --bg-color: #f8f9fa;
+    --container-bg: #ffffff;
+    --text-color: #212529;
+    --accent-color: #4dabf7;
+    --accent-hover: #339af0;
+    --border-color: #dee2e6;
+    --shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
 }
 
 [data-theme='dark'] {
-    --bg-color: #1a1a1a;
-    --container-bg: #2d2d2d;
-    --text-color: #f0f0f0;
-    --accent-color: #3498db;
-    --button-bg: #27ae60;
-    --button-hover: #219150;
-    --shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    --bg-color: #121212;
+    --container-bg: #1e1e1e;
+    --text-color: #e9ecef;
+    --accent-color: #339af0;
+    --accent-hover: #4dabf7;
+    --border-color: #343a40;
+    --shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
 
 body {
-    font-family: sans-serif;
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
     background-color: var(--bg-color);
     color: var(--text-color);
     transition: background-color 0.3s, color 0.3s;
@@ -41,112 +41,137 @@ main {
 
 .container {
     text-align: center;
-    padding: 2rem;
+    padding: 3rem 2rem;
     background-color: var(--container-bg);
-    border-radius: 10px;
+    border-radius: 20px;
     box-shadow: var(--shadow);
     transition: background-color 0.3s, box-shadow 0.3s;
     width: 90%;
-    max-width: 500px;
+    max-width: 600px;
 }
 
-.numbers-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin: 2rem 0;
+h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 800;
 }
 
-.number {
-    width: 50px;
-    height: 50px;
+p {
+    color: #868e96;
+    margin-bottom: 2rem;
+}
+
+/* Upload Area */
+.upload-area {
+    border: 3px dashed var(--border-color);
+    border-radius: 15px;
+    padding: 3rem 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    background-color: transparent;
+}
+
+.upload-area:hover {
+    border-color: var(--accent-color);
+    background-color: rgba(77, 171, 247, 0.05);
+}
+
+.upload-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+/* Image Preview */
+#image-preview-container {
+    margin-top: 2rem;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+#image-preview {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Loading Spinner */
+#loading {
+    margin-top: 2rem;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-left-color: var(--accent-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Results */
+#result-container {
+    margin-top: 2rem;
+    text-align: left;
+}
+
+#result-title {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    color: var(--accent-color);
+}
+
+.result-bar-wrapper {
+    margin-bottom: 1rem;
+}
+
+.label-text {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5rem;
-    font-weight: bold;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 12px;
+    background-color: var(--border-color);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: var(--accent-color);
+    transition: width 0.5s ease-out;
+}
+
+/* Buttons */
+#retry-btn {
+    margin-top: 2rem;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 700;
     color: #fff;
     background-color: var(--accent-color);
-    border-radius: 50%;
-}
-
-#generate-btn {
-    padding: 1rem 2rem;
-    font-size: 1.2rem;
-    color: #fff;
-    background-color: var(--button-bg);
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
-#generate-btn:hover {
-    background-color: var(--button-hover);
+#retry-btn:hover {
+    background-color: var(--accent-hover);
 }
 
-/* Contact Form Styles */
-.contact-container {
-    text-align: left;
-}
-
-.contact-container h2 {
-    text-align: center;
-    margin-top: 0;
-    margin-bottom: 1.5rem;
-}
-
-.form-group {
-    margin-bottom: 1.2rem;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: bold;
-    font-size: 0.9rem;
-}
-
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 0.8rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: var(--container-bg);
-    color: var(--text-color);
-    font-size: 1rem;
-    box-sizing: border-box;
-}
-
-[data-theme='dark'] .form-group input,
-[data-theme='dark'] .form-group textarea {
-    border-color: #444;
-}
-
-.form-group textarea {
-    height: 120px;
-    resize: vertical;
-}
-
-#submit-btn {
-    width: 100%;
-    padding: 1rem;
-    font-size: 1.1rem;
-    color: #fff;
-    background-color: var(--accent-color);
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: opacity 0.3s;
-    font-weight: bold;
-}
-
-#submit-btn:hover {
-    opacity: 0.9;
-}
-
+/* Theme Toggle */
 .theme-toggle {
     position: fixed;
     top: 1rem;
@@ -156,20 +181,58 @@ main {
 
 #theme-btn {
     background: var(--container-bg);
-    border: 1px solid var(--text-color);
+    border: 1px solid var(--border-color);
     color: var(--text-color);
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
+    padding: 0.6rem 1.2rem;
+    border-radius: 30px;
+    font-weight: 600;
     cursor: pointer;
+    box-shadow: var(--shadow);
     transition: all 0.3s;
 }
 
-#theme-btn:hover {
+/* Form Styles */
+.contact-container {
+    text-align: left;
+}
+
+.contact-container h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    background-color: var(--container-bg);
+    color: var(--text-color);
+    box-sizing: border-box;
+}
+
+#submit-btn {
+    width: 100%;
+    padding: 1rem;
     background-color: var(--text-color);
     color: var(--container-bg);
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
 }
 
 .disqus-container {
     max-width: 800px;
-    text-align: left;
 }

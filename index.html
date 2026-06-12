@@ -1,22 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lotto Number Generator</title>
+    <title>인공지능 동물상 테스트</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Teachable Machine Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
 </head>
 <body>
     <div class="theme-toggle">
-        <button id="theme-btn">Dark Mode</button>
+        <button id="theme-btn">다크 모드</button>
     </div>
     
     <main>
-        <div class="container">
-            <h1>Lotto Number Generator</h1>
-            <p>Click the button to generate your lucky numbers!</p>
-            <div class="numbers-container"></div>
-            <button id="generate-btn">Generate Numbers</button>
+        <div class="container main-container">
+            <h1>인공지능 동물상 테스트</h1>
+            <p>사진을 업로드하여 당신의 동물상을 확인해보세요!</p>
+            
+            <div class="upload-area" id="upload-area">
+                <input type="file" id="file-input" accept="image/*" hidden>
+                <div class="upload-icon">📷</div>
+                <p>클릭하거나 파일을 드래그하여 업로드하세요</p>
+            </div>
+
+            <div id="image-preview-container" style="display: none;">
+                <img id="image-preview" src="" alt="업로드 이미지">
+            </div>
+
+            <div id="loading" style="display: none;">
+                <div class="spinner"></div>
+                <p>분석 중...</p>
+            </div>
+
+            <div id="result-container" style="display: none;">
+                <h2 id="result-title"></h2>
+                <div id="label-container"></div>
+            </div>
+
+            <button id="retry-btn" style="display: none;">다시 시도하기</button>
         </div>
 
         <div class="container contact-container">
@@ -45,16 +68,7 @@
         <div class="container disqus-container">
             <div id="disqus_thread"></div>
             <script>
-                /**
-                *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-                *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
-                /*
-                var disqus_config = function () {
-                this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-                this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-                };
-                */
-                (function() { // DON'T EDIT BELOW THIS LINE
+                (function() {
                 var d = document, s = d.createElement('script');
                 s.src = 'https://productbuilderlec2.disqus.com/embed.js';
                 s.setAttribute('data-timestamp', +new Date());
