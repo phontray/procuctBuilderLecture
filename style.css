@@ -171,12 +171,27 @@ p {
     background-color: var(--accent-hover);
 }
 
-/* Theme Toggle */
+/* Theme Toggle & Navigation */
 .theme-toggle {
     position: fixed;
     top: 1rem;
     right: 1rem;
     z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: var(--accent-color);
 }
 
 #theme-btn {
