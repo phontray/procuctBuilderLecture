@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>인공지능 동물상 테스트</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Teachable Machine Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+</head>
+<body>
+    <div class="theme-toggle">
+        <a href="index.html" class="nav-link">홈으로</a>
+        <button id="theme-btn">다크 모드</button>
+    </div>
+    
+    <main>
+        <div class="container main-container">
+            <h1>인공지능 동물상 테스트</h1>
+            <p>사진을 업로드하여 당신의 동물상을 확인해보세요!</p>
+            
+            <div class="upload-area" id="upload-area">
+                <input type="file" id="file-input" accept="image/*" hidden>
+                <div class="upload-icon">📷</div>
+                <p>클릭하거나 파일을 드래그하여 업로드하세요</p>
+            </div>
+
+            <div id="image-preview-container" style="display: none;">
+                <img id="image-preview" src="" alt="업로드 이미지">
+            </div>
+
+            <div id="loading" style="display: none;">
+                <div class="spinner"></div>
+                <p>분석 중...</p>
+            </div>
+
+            <div id="result-container" style="display: none;">
+                <h2 id="result-title"></h2>
+                <div id="label-container"></div>
+            </div>
+
+            <button id="retry-btn" style="display: none;">다시 시도하기</button>
+        </div>
+    </main>
+
+    <script src="main.js"></script>
+</body>
+</html>
