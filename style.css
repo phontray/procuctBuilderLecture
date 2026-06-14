@@ -325,6 +325,20 @@ p {
     box-shadow: 0 6px 20px rgba(77, 171, 247, 0.4);
 }
 
+.lotto-btns {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+#lotto-reset-btn {
+    padding: 1rem 2rem;
+    border-radius: 30px;
+    font-weight: 800;
+    font-size: 1.1rem;
+}
+
 /* Form Styles */
 .contact-container {
     text-align: left;

@@ -155,18 +155,22 @@ if (uploadArea && fileInput) {
 
 // Lotto logic
 const lottoGenerateBtn = document.getElementById('lotto-generate-btn');
-const lottoContainer = document.getElementById('lotto-container');
+const lottoResetBtn = document.getElementById('lotto-reset-btn');
 const lottoResults = document.getElementById('lotto-results');
 
 if (lottoGenerateBtn) {
     lottoGenerateBtn.addEventListener('click', () => {
-        if (lottoResults.innerHTML === '') {
-            generateAndRenderLotto();
-            lottoGenerateBtn.textContent = '로또번호 다시 생성하기';
-        } else {
-            lottoResults.innerHTML = '';
-            lottoGenerateBtn.textContent = '로또 번호 생성하기';
-        }
+        generateAndRenderLotto();
+        lottoGenerateBtn.textContent = '로또번호 다시 생성하기';
+        if (lottoResetBtn) lottoResetBtn.style.display = 'inline-block';
+    });
+}
+
+if (lottoResetBtn) {
+    lottoResetBtn.addEventListener('click', () => {
+        if (lottoResults) lottoResults.innerHTML = '';
+        lottoGenerateBtn.textContent = '로또 번호 생성하기';
+        lottoResetBtn.style.display = 'none';
     });
 }
 
