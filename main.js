@@ -154,21 +154,15 @@ if (uploadArea && fileInput) {
 }
 
 // Lotto logic
-const lottoBtn = document.getElementById('lotto-btn');
+const lottoGenerateBtn = document.getElementById('lotto-generate-btn');
 const lottoContainer = document.getElementById('lotto-container');
 const lottoResults = document.getElementById('lotto-results');
-const lottoRefreshBtn = document.getElementById('lotto-refresh-btn');
 
-if (lottoBtn) {
-    lottoBtn.addEventListener('click', () => {
-        lottoContainer.style.display = 'block';
+if (lottoGenerateBtn) {
+    lottoGenerateBtn.addEventListener('click', () => {
         generateAndRenderLotto();
-        lottoContainer.scrollIntoView({ behavior: 'smooth' });
+        lottoGenerateBtn.textContent = '번호 다시 생성하기';
     });
-}
-
-if (lottoRefreshBtn) {
-    lottoRefreshBtn.addEventListener('click', generateAndRenderLotto);
 }
 
 function generateAndRenderLotto() {
