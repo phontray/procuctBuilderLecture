@@ -160,8 +160,13 @@ const lottoResults = document.getElementById('lotto-results');
 
 if (lottoGenerateBtn) {
     lottoGenerateBtn.addEventListener('click', () => {
-        generateAndRenderLotto();
-        lottoGenerateBtn.textContent = '번호 다시 생성하기';
+        if (lottoResults.innerHTML === '') {
+            generateAndRenderLotto();
+            lottoGenerateBtn.textContent = '로또번호 다시 생성하기';
+        } else {
+            lottoResults.innerHTML = '';
+            lottoGenerateBtn.textContent = '로또 번호 생성하기';
+        }
     });
 }
 
