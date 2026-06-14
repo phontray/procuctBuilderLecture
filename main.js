@@ -168,10 +168,16 @@ if (lottoGenerateBtn) {
 function generateAndRenderLotto() {
     if (!lottoResults) return;
     lottoResults.innerHTML = '';
+    const labels = ['A', 'B', 'C', 'D', 'E'];
     for (let i = 0; i < 5; i++) {
         const numbers = generateLottoNumbers();
         const row = document.createElement('div');
         row.className = 'lotto-row';
+        
+        const label = document.createElement('span');
+        label.className = 'lotto-label';
+        label.textContent = labels[i];
+        row.appendChild(label);
         
         numbers.forEach(num => {
             const ball = document.createElement('div');
