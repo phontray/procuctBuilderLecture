@@ -152,3 +152,57 @@ if (uploadArea && fileInput) {
     // Pre-load model if on animal test page
     init();
 }
+
+// Lotto logic
+const lottoBtn = document.getElementById('lotto-btn');
+const lottoContainer = document.getElementById('lotto-container');
+const lottoResults = document.getElementById('lotto-results');
+const lottoRefreshBtn = document.getElementById('lotto-refresh-btn');
+
+if (lottoBtn) {
+    lottoBtn.addEventListener('click', () => {
+        lottoContainer.style.display = 'block';
+        generateAndRenderLotto();
+        lottoContainer.scrollIntoView({ behavior: 'smooth' });
+    });
+}
+
+if (lottoRefreshBtn) {
+    lottoRefreshBtn.addEventListener('click', generateAndRenderLotto);
+}
+
+function generateAndRenderLotto() {
+    if (!lottoResults) return;
+    lottoResults.innerHTML = '';
+    for (let i = 0; i < 5; i++) {
+        const numbers = generateLottoNumbers();
+        const row = document.createElement('div');
+        row.className = 'lotto-row';
+        
+        numbers.forEach(num => {
+            const ball = document.createElement('div');
+            ball.className = `lotto-ball ${getBallColorClass(num)}`;
+            ball.textContent = num;
+            row.appendChild(ball);
+        });
+        
+        lottoResults.appendChild(row);
+    }
+}
+
+function generateLottoNumbers() {
+    const numbers = new Set();
+    while (numbers.size < 6) {
+        const num = Math.floor(Math.random() * 45) + 1;
+        numbers.add(num);
+    }
+    return Array.from(numbers).sort((a, b) => a - b);
+}
+
+function getBallColorClass(num) {
+    if (num <= 10) return 'ball-yellow';
+    if (num <= 20) return 'ball-blue';
+    if (num <= 30) return 'ball-red';
+    if (num <= 40) return 'ball-gray';
+    return 'ball-green';
+}

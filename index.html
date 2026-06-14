@@ -9,10 +9,17 @@
 <body>
     <div class="theme-toggle">
         <a href="animal-test.html" class="nav-link">동물상 테스트</a>
+        <button id="lotto-btn">로또 번호 생성</button>
         <button id="theme-btn">다크 모드</button>
     </div>
     
     <main>
+        <div id="lotto-container" class="container" style="display: none;">
+            <h2>로또 당첨 예상번호</h2>
+            <div id="lotto-results"></div>
+            <button id="lotto-refresh-btn" class="secondary-btn">다시 생성</button>
+        </div>
+
         <div class="container contact-container">
             <h2>제휴 문의</h2>
             <form action="https://formspree.io/f/xpqngldw" method="POST">
