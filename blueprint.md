@@ -5,7 +5,6 @@
 ## 주요 기능
 *   **AI 사진 분석**: 업로드된 사진을 분석하여 동물상 판별.
 *   **제휴 문의**: Formspree를 활용한 이메일 문의 접수 기능.
-*   **댓글 서비스**: Disqus를 활용한 사용자 소통 창구.
 *   **다크 모드**: 사용자 편의를 위한 테마 전환 기능.
 
 ## 기술 스택
@@ -14,7 +13,6 @@
     *   Model URL: `https://teachablemachine.withgoogle.com/models/AGonIRDjb/`
 *   **External Services**: 
     *   Formspree (Contact Form)
-    *   Disqus (Comments)
 
 ## 프로젝트 구조
 *   `index.html`: 메인 UI 구조 및 라이브러리 로드
